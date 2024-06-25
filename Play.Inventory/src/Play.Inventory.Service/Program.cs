@@ -41,7 +41,7 @@ builder.Services.AddHttpClient<CatalogClient>(client =>
     serviceProvider.GetService<ILogger<CatalogClient>>().LogWarning("Closing the circuit...");
 }))
 .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(1));
-
+ 
 builder.Services.AddControllers(options =>
 {
     options.SuppressAsyncSuffixInActionNames = false;
