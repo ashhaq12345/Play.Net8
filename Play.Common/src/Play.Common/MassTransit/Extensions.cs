@@ -20,6 +20,7 @@ public static class Extensions
                 var serviceSettings = configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
                 cfg.Host(rabbitMqSettings.Host);
                 cfg.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceSettings.ServiceName, false));
+                cfg.UseMessageRetry(r => r.Interval(3, TimeSpan.FromSeconds(5)));
             });
         });
     }
