@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="masstransit.aspnetcore" Version="7.3.1" />
+    <PackageReference Include="masstransit.rabbitmq" Version="8.2.3" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="microsoft.extensions.configuration.binder" Version="8.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
