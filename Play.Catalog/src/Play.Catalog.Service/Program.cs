@@ -17,6 +17,7 @@ builder.Services.AddMongo()
         .AddMongoRepository<Item>("items")
         .AddMassTransitWithRabbitMq();
 
+
 builder.Services.AddControllers(options =>
 {
     options.SuppressAsyncSuffixInActionNames = false;
@@ -30,6 +31,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(cors => cors.WithOrigins(builder.Configuration["AllowedOrigins"])
+    .AllowAnyHeader()
+    .AllowAnyMethod());
 
 app.MapControllers();
 app.UseHttpsRedirection();
